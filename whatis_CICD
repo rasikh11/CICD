@@ -1,0 +1,21 @@
+## what's cicd?
+
+- CICD is a two-part approach where CI(Continuous Integration) and CD(Continuous Delivery.
+
+**Continuous Integration:** Continuous Integration is the practice of regularly integrating code changes into a shared repository, where  automated builds and tests are run. The goal is to detect issues early by frequently merging code, ensuring  that the application works as expected throughout the development lifecycle. 
+
+**Continuous Delivery:** Continuous Delivery is the process of automatically preparing and delivering the application to a production-like environment, ensuring that it can be deployed at any time. The focus is on automating the release process, so that the software can be released to production smoothly and with minimal manual intervention.
+
+**CICD steps:**
+
+- Code: Developers write code and commit to a shared repository.
+
+- Build: The commited code is automatically compiled and built into a runnable application.
+
+- Test: Automated tests are run to validate the code's functionality and ensure it meet quailty standards.
+
+- Integration: The code is merged into a central repository after passing all tests.
+
+- Delivery: The application is automatically prepared for deployement to staging or production.
+
+- Deployment: The application is automatically deployed to production after successful testing. 
