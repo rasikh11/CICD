@@ -1,0 +1,55 @@
+**CICD Implementation Chart:**
+
+ ┌──────────────────────────┐      ┌──────────────────────────┐
+ │      Code Commit          │      │    Source Control        │
+ │  (Developer Writes Code)  │─────>│    (Git, Bitbucket, etc.)│
+ └──────────────────────────┘      └──────────────────────────┘
+               │                            │
+               ▼                            ▼
+ ┌──────────────────────────┐      ┌──────────────────────────┐
+ │     Continuous           │      │  Build Triggered by      │
+ │     Integration (CI)      │─────>│     Push/Merge Events    │
+ │  (Jenkins, CircleCI, etc.)│      │     (Webhooks)           │
+ └──────────────────────────┘      └──────────────────────────┘
+               │                            │
+               ▼                            ▼
+ ┌──────────────────────────┐      ┌──────────────────────────┐
+ │   Automated Testing       │      │   Unit Tests/Integration │
+ │  (Selenium, JUnit, etc.)  │─────>│  Tests (Python, JS, etc.)│
+ └──────────────────────────┘      └──────────────────────────┘
+               │                            │
+               ▼                            ▼
+ ┌──────────────────────────┐      ┌──────────────────────────┐
+ │  Build Artifacts Created  │      │  Docker Image, JAR, WAR  │
+ │   (Docker, Maven, etc.)   │─────>│     Built & Stored       │
+ └──────────────────────────┘      └──────────────────────────┘
+               │                            │
+               ▼                            ▼
+ ┌──────────────────────────┐      ┌──────────────────────────┐
+ │   Security Scanning       │      │    DAST/SAST Tools       │
+ │   (Checkmarx, SonarQube)  │─────>│   (OWASP ZAP, etc.)      │
+ └──────────────────────────┘      └──────────────────────────┘
+               │                            │
+               ▼                            ▼
+ ┌──────────────────────────┐      ┌──────────────────────────┐
+ │    Continuous Delivery    │      │     Staging Environment   │
+ │    (Artifact Deployed)    │─────>│   (Kubernetes, AWS, etc.) │
+ └──────────────────────────┘      └──────────────────────────┘
+               │                            │
+               ▼                            ▼
+ ┌──────────────────────────┐      ┌──────────────────────────┐
+ │  Manual or Automated      │      │  Pre-production Testing  │
+ │   Approval Process        │─────>│     (QA/UAT)             │
+ └──────────────────────────┘      └──────────────────────────┘
+               │                            │
+               ▼                            ▼
+ ┌──────────────────────────┐      ┌──────────────────────────┐
+ │    Continuous Deployment  │      │  Production Deployment   │
+ │   (Automated or Manual)   │─────>│   (K8s, ECS, Serverless) │
+ └──────────────────────────┘      └──────────────────────────┘
+               │                            │
+               ▼                            ▼
+ ┌──────────────────────────┐      ┌──────────────────────────┐
+ │   Monitoring & Feedback   │      │  (Prometheus, Datadog,   │
+ │   (Post-Deployment)       │─────>│   CloudWatch, Grafana)   │
+ └──────────────────────────┘      └──────────────────────────┘
