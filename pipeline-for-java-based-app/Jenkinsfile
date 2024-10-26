@@ -8,7 +8,7 @@ pipeline {
     stage('Clone repository') {
       steps {
         // Cloning the java application's source code from Github
-        git https://github.com/HouariZegai/Calculator.git
+        git 'https://github.com/HouariZegai/Calculator.git'
       }
     }
 
