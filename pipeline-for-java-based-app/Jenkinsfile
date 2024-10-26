@@ -1,0 +1,42 @@
+pipeline {
+  agent any
+  environment {
+    JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64/' // Update the java installation path on jenkins agent
+    PATH = "${JAVA_HOME}/bin:${env.PATH}" // Adding java to the PATH
+  }
+  stages {
+    stage('Clone repository') {
+      steps {
+        // Cloning the java application's source code from Github
+        git https://github.com/HouariZegai/Calculator.git
+      }
+    }
+
+    stage('Build') {
+      steps {
+        // compliing and packaging the java application using Maven
+        sh 'mvn clean install'
+      }
+    }
+    stage('Test') {
+      steps {
+        // Running unit testsn to verify the code
+        sh 'mvn test'
+      }
+    }
+  
+    stage('Deploy') {
+      steps {
+        // Transferring the packaged JAR file to the remote server for deployment
+        sh 'scp -i /home/ubuntu/rasikh-aws-admin.pem target/Calculator.jar ubuntu@18.212.129.237:/home/ubuntu/'
+      }
+    }
+  
+    stage('Run') {
+      steps {
+        // Login into remote server to run the application
+        sh 'ssh -i  /home/ubuntu/rasikh-aws-admin.pem ubuntu@18.212.129.237 "nohup java -jar /home/ubuntu//MyJavaApp.jar &"'
+'     }
+    }
+  }
+}
